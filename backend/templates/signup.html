@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+    <link rel="stylesheet" href="{% static '/css/signup.css' %}" />
+  </head>
+  <body>
+    <div class="signup-login">
+      <div class="brand-heading">
+        <div class="brand-title">
+          Welcome to <span class="text-lightBlue">Reminder</span>
+        </div>
+        <p class="brand-description">
+          Memorize important tasks, calculate your expenses and improve your
+          efficiency.
+        </p>
+        <p class="brand-subtitle">Your journey starts here. Join us today!</p>
+      </div>
+
+      <div class="signup-box">
+        <form method="post">
+          {% csrf_token %}
+
+          <div class="heading">Sign up</div>
+
+          <div class="line"></div>
+
+          <div class="field">
+            <input
+              type="text"
+              name="username"
+              class="signup-input"
+              placeholder="Username"
+              required
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field">
+            <input
+              type="email"
+              name="email"
+              class="signup-input"
+              placeholder="Email"
+              required
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field">
+            <input
+              type="password"
+              name="password"
+              class="signup-input"
+              placeholder="Password"
+              required
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field">
+            <input type="submit" class="submit-button" value="Sign up" />
+          </div>
+        </form>
+
+        <div class="field redirect">
+          <p>Already have an account?</p>
+          <a class="redirect-link" href="/signin">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
