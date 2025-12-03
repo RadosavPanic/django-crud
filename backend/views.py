@@ -29,4 +29,10 @@ def signin(request):
     return render(request, 'signin.html')
 
 def task(request):
-    return render(request, 'task.html')
+    if request.method == "POST":
+        title = request.POST.get("title")
+        obj = models.Task(title=title, user=request.user)
+        obj.save()        
+        return redirect("/task")
+    res = models.Task.objects.filter(user=request.user).order_by('-srno')
+    return render(request, 'task.html', {'res': res})

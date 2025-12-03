@@ -5,34 +5,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign in</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="{% static '/css/task.css' %}" />
   </head>
   <body>
     <div class="task-container">
-      <div class="task-box">
-        <form method="post">
-          {% csrf_token %}
-
-          <div class="heading">Add new task</div>
-
-          <div class="line"></div>
-
-          <div class="field">
-            <input
-              type="text"
-              name="title"
-              class="task-input"
-              placeholder="Task Title"
-              required
-              autocomplete="off"
-            />
-          </div>
-
-          <div class="field">
-            <input type="submit" class="submit-button" value="Sign in" />
-          </div>
-        </form>
+      <div class="user-info">
+        <h1>Hello {{user}}</h1>
+        <div class="logout-btn">
+          <span>Logout</span>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </div>
       </div>
+
+      <section class="tasks">
+        <table class="tasks-table">
+          {% if res|length > 0 %}
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Date created</th>
+            <th>Options</th>
+          </tr>
+          {% endif %} {% if not res %}
+          <tr>
+            <td>No tasks added. Begin with adding new tasks 🚀</td>
+          </tr>
+
+          {% endif %} {% for task in res %}
+          <tr>
+            <td>{{task.srno}}</td>
+            <td>{{task.title}}</td>
+            <td>{{task.date|date:"Y/m/d H:i"}}</td>
+            <td>
+              <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
+              <a href=""><i class="fa-solid fa-trash-can"></i></a>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+
+        <div class="task-box">
+          <form method="post">
+            {% csrf_token %}
+
+            <div class="heading">Add new task</div>
+
+            <div class="line"></div>
+
+            <div class="field">
+              <input
+                type="text"
+                name="title"
+                class="task-input"
+                placeholder="Task Title"
+                required
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="field">
+              <input type="submit" class="submit-button" value="Add" />
+            </div>
+          </form>
+        </div>
+      </section>
     </div>
   </body>
 </html>

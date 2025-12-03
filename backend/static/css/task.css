@@ -4,19 +4,49 @@ body {
 }
 
 .task-container {
-  position: absolute;
   background-color: #0f1f37;
   width: 100%;
-  height: 1080px;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow: auto;
   font-size: 24px;
   color: #fff;
   font-family: monospace;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  padding: 30px 0;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  margin-top: 150px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  gap: 30px;
+  gap: 15px;
+  width: 100%;
+}
+
+.user-info h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.logout-btn {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
 }
 
 .task-box {
@@ -25,6 +55,45 @@ body {
   width: 520px;
   border-radius: 25px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.tasks-table {
+  width: 600px;
+  border-collapse: collapse;
+  font-size: 20px;
+  background-color: #ffffff20;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.tasks-table th {
+  padding: 12px 15px;
+  text-align: left;
+  background: rgba(56, 185, 228, 0.3);
+  color: #fff;
+  font-size: 22px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.tasks-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tasks-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tasks-table i {
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.2s;
+}
+
+.tasks-table i:hover {
+  color: rgb(56, 185, 228);
 }
 
 .heading {
