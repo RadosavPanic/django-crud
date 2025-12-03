@@ -3,7 +3,7 @@ body {
   padding: 0;
 }
 
-.signin-login {
+.task-container {
   position: absolute;
   background-color: #0f1f37;
   width: 100%;
@@ -19,36 +19,7 @@ body {
   gap: 30px;
 }
 
-.brand-heading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-right: 10px;
-  max-width: 420px;
-}
-
-.brand-title {
-  font-size: 40px;
-}
-
-.brand-subtitle {
-  font-size: 20px;
-  text-wrap: wrap;
-  text-align: center;
-}
-
-.brand-description {
-  font-size: 16px;
-  text-wrap: wrap;
-  text-align: center;
-}
-
-.text-lightBlue {
-  color: rgb(56, 185, 228);
-}
-
-.signin-box {
+.task-box {
   background-color: #ffffff30;
   padding: 5px 5px 40px 5px;
   width: 520px;
@@ -67,16 +38,7 @@ body {
   text-shadow: 0px 10px 10px rgba(255, 255, 255, 0.4);
 }
 
-.lbl-input {
-  font-size: 18px;
-  font-weight: 500;
-  margin-left: 10px;
-  padding: 0;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.signin-input {
+.task-input {
   margin: 10px;
   height: 50px;
   width: 500px;
@@ -93,11 +55,11 @@ body {
   outline: none;
 }
 
-.signin-input::placeholder {
+.task-input::placeholder {
   color: #ffffffa5;
 }
 
-.signin-input:focus {
+.task-input:focus {
   border-left: 2px solid rgba(56, 185, 228, 100);
   border-bottom: 2px solid rgba(56, 185, 228, 100);
 }
@@ -135,24 +97,4 @@ body {
   background-color: rgb(56, 185, 228);
   border: 0px solid rgba(255, 255, 255, 0.5);
   box-sizing: border-box;
-}
-
-.redirect {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-  font-size: 18px;
-}
-
-.redirect-link {
-  text-decoration: none;
-  color: rgb(56, 185, 228);
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.redirect-link:hover {
-  text-decoration: underline;
 }

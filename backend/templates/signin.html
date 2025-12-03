@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in</title>
+    <link rel="stylesheet" href="{% static '/css/signin.css' %}" />
+  </head>
+  <body>
+    <div class="signin-login">
+      <div class="brand-heading">
+        <div class="brand-title">
+          Welcome to <span class="text-lightBlue">Reminder</span>
+        </div>
+        <p class="brand-description">
+          Memorize important tasks, calculate your expenses and improve your
+          efficiency.
+        </p>
+        <p class="brand-subtitle">Your journey starts here. Join us today!</p>
+      </div>
+
+      <div class="signin-box">
+        <form method="post">
+          {% csrf_token %}
+
+          <div class="heading">Sign in</div>
+
+          <div class="line"></div>
+
+          <div class="field">
+            <input
+              type="text"
+              name="username"
+              class="signin-input"
+              placeholder="Username"
+              required
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field">
+            <input
+              type="password"
+              name="password"
+              class="signin-input"
+              placeholder="Password"
+              required
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field">
+            <input type="submit" class="submit-button" value="Sign in" />
+          </div>
+        </form>
+
+        <div class="field redirect">
+          <p>Don't have an account?</p>
+          <a class="redirect-link" href="/signup">Sign up</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

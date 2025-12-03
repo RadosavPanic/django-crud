@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in</title>
+    <link rel="stylesheet" href="{% static '/css/task.css' %}" />
+  </head>
+  <body>
+    <div class="task-container">
+      <div class="task-box">
+        <form method="post">
+          {% csrf_token %}
+
+          <div class="heading">Add new task</div>
+
+          <div class="line"></div>
+
+          <div class="field">
+            <input
+              type="text"
+              name="title"
+              class="task-input"
+              placeholder="Task Title"
+              required
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field">
+            <input type="submit" class="submit-button" value="Sign in" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
