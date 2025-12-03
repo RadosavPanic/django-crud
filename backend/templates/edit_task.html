@@ -22,41 +22,11 @@
       </div>
 
       <section class="tasks">
-        <table class="tasks-table">
-          {% if res|length > 0 %}
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Date created</th>
-            <th>Options</th>
-          </tr>
-          {% endif %} {% if not res %}
-          <tr>
-            <td>No tasks added. Begin with adding new tasks 🚀</td>
-          </tr>
-
-          {% endif %} {% for task in res %}
-          <tr>
-            <td>{{task.srno}}</td>
-            <td>{{task.title}}</td>
-            <td>{{task.date|date:"Y/m/d H:i"}}</td>
-            <td>
-              <a href="/edit_task/{{task.srno}}"
-                ><i class="fa-solid fa-pen-to-square"></i
-              ></a>
-              <a href="/delete_task/{{task.srno}}"
-                ><i class="fa-solid fa-trash-can"></i
-              ></a>
-            </td>
-          </tr>
-          {% endfor %}
-        </table>
-
         <div class="task-box">
           <form method="post">
             {% csrf_token %}
 
-            <div class="heading">Create new task</div>
+            <div class="heading">Edit task</div>
 
             <div class="line"></div>
 
@@ -68,11 +38,12 @@
                 placeholder="Task Title"
                 required
                 autocomplete="off"
+                value="{{ obj.title }}"
               />
             </div>
 
             <div class="field">
-              <input type="submit" class="submit-button" value="Add" />
+              <input type="submit" class="submit-button" value="Update" />
             </div>
           </form>
         </div>

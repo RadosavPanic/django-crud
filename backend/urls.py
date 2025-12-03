@@ -7,5 +7,6 @@ urlpatterns = [
     path("", views.home),
     path("signup/", views.signup),
     path("signin/", views.signin),
-    path("task/", views.task)
+    path("task/", views.task),
+    path("edit_task/<int:srno>", views.edit_task, name="edit_task")
 ]
