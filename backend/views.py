@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from . import models
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     return render(request, 'signup.html')
@@ -29,6 +30,7 @@ def signin(request):
         
     return render(request, 'signin.html')
 
+@login_required(login_url="/signin")
 def task(request):
     if request.method == "POST":
         title = request.POST.get("title")
@@ -39,6 +41,7 @@ def task(request):
     res = models.Task.objects.filter(user=request.user).order_by('-srno')
     return render(request, 'task.html', {'res': res})
 
+@login_required(login_url="/signin")
 def edit_task(request, srno):
     if request.method == "POST":
         title = request.POST.get("title")
@@ -49,3 +52,13 @@ def edit_task(request, srno):
     
     obj = models.Task.objects.get(srno=srno)        
     return render(request, 'edit_task.html', {'obj': obj})
+
+@login_required(login_url="/signin")
+def delete_task(request, srno):
+    obj = models.Task.objects.get(srno=srno)
+    obj.delete()
+    return redirect("/task")
+
+def signout(request):
+    logout(request)
+    return redirect("/signin")

@@ -17,7 +17,9 @@
         <h1>Hello {{user}}</h1>
         <div class="logout-btn">
           <span>Logout</span>
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <a href="{% url 'signout' %}"
+            ><i class="fa-solid fa-arrow-right-from-bracket"></i
+          ></a>
         </div>
       </div>
 
